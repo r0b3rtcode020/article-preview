@@ -1,0 +1,31 @@
+@use "./variables" as *;
+
+@mixin text-preset1-bold {
+  font-weight: $fw-bold;
+  line-height: $lh-130;
+  letter-spacing: 0.0156rem;
+}
+
+@mixin text-preset2($weight) {
+  font-weight: $weight;
+  line-height: $lh-140;
+  letter-spacing: 0.12%;
+}
+
+@mixin text-preset3 {
+  font-weight: $fw-medium;
+  line-height: $lh-140;
+  letter-spacing: 25%;
+}
+
+@mixin breakpoint($point) {
+  @if $point == "tablet" {
+    @media (min-width: $bp-tablet) {
+      @content;
+    }
+  } @else if $point == "desktop" {
+    @media (min-width: $bp-desktop) {
+      @content;
+    }
+  }
+}
