@@ -9,13 +9,14 @@
 @mixin text-preset2($weight) {
   font-weight: $weight;
   line-height: $lh-140;
-  letter-spacing: 0.12%;
+  letter-spacing: 0.0012rem;
 }
 
 @mixin text-preset3 {
   font-weight: $fw-medium;
   line-height: $lh-140;
-  letter-spacing: 25%;
+  letter-spacing: 0.25rem;
+  text-transform: uppercase;
 }
 
 @mixin breakpoint($point) {

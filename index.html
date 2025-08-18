@@ -6,6 +6,7 @@
 
     <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
     <link rel="stylesheet" href="./css/styles.css" />
+    <script defer src="./js/main.js"></script>
     <title>Frontend Mentor | Article preview component</title>
   </head>
   <body>
@@ -26,10 +27,11 @@
               and uninviting. I’ve got some simple tips to help you make any room feel complete.
             </p>
           </div>
-
-          <footer class="card__interaction">
-            <!-- Initial State -->
-            <div class="interaction--default">
+        </div>
+        <footer class="card__interaction">
+          <!-- Initial State -->
+          <div class="interaction--default">
+            <div class="profile">
               <figure class="avatar">
                 <img src="./images/avatar-michelle.jpg" alt="Michelle Appleton Image" />
               </figure>
@@ -37,12 +39,14 @@
                 <h3 class="author__name">Michelle Appleton</h3>
                 <p class="author__date">28 Jun 2020</p>
               </div>
-              <button class="share-button" aria-label="Share article">
-                <img src="./images/icon-share.svg" alt="Share icon" />
-              </button>
             </div>
-            <!-- Share State Mobile -->
-            <div class="interaction--share">
+            <button class="share__button" aria-label="Share article">
+              <img src="./images/icon-share.svg" alt="Share icon" />
+            </button>
+          </div>
+          <!-- Share State Mobile -->
+          <div class="interaction--share">
+            <div class="share">
               <span class="share__text">Share</span>
               <div class="share__social">
                 <a href="#" class="social-link" aria-label="Share on Facebook">
@@ -55,29 +59,29 @@
                   <img src="./images/icon-pinterest.svg" alt="Pinterest" />
                 </a>
               </div>
-              <button class="share-button share-button--active" aria-label="Close share">
-                <img src="./images/icon-share.svg" alt="Share icon" />
-              </button>
             </div>
-            <!-- Share State Tablet/Desktop -->
-            <div class="interaction--tooltip">
-              <span class="tooltip__text">Share</span>
-              <div class="tooltip__social">
-                <a href="#" class="social-link" aria-label="Share on Facebook">
-                  <img src="./images/icon-facebook.svg" alt="Facebook" />
-                </a>
-                <a href="#" class="social-link" aria-label="Share on Twitter">
-                  <img src="./images/icon-twitter.svg" alt="Twitter" />
-                </a>
-                <a href="#" class="social-link" aria-label="Share on Pinterest">
-                  <img src="./images/icon-pinterest.svg" alt="Pinterest" />
-                </a>
-              </div>
-              <!-- Arrow Tooltip (only visible in desktop/tablet) -->
-              <div class="tooltip__arrow" aria-hidden="true"></div>
+            <button class="share__button share__button--active" aria-label="Close share">
+              <img src="./images/icon-share.svg" alt="Share icon" />
+            </button>
+          </div>
+          <!-- Share State Tablet/Desktop -->
+          <div class="interaction--tooltip">
+            <span class="tooltip__text">Share</span>
+            <div class="tooltip__social">
+              <a href="#" class="social-link" aria-label="Share on Facebook">
+                <img src="./images/icon-facebook.svg" alt="Facebook" />
+              </a>
+              <a href="#" class="social-link" aria-label="Share on Twitter">
+                <img src="./images/icon-twitter.svg" alt="Twitter" />
+              </a>
+              <a href="#" class="social-link" aria-label="Share on Pinterest">
+                <img src="./images/icon-pinterest.svg" alt="Pinterest" />
+              </a>
             </div>
-          </footer>
-        </div>
+            <!-- Arrow Tooltip (only visible in desktop/tablet) -->
+            <div class="tooltip__arrow" aria-hidden="true"></div>
+          </div>
+        </footer>
       </article>
     </main>
   </body>

@@ -18,7 +18,7 @@ body {
   font-size: 0.8125rem;
   font-weight: 500;
   line-height: 1.4;
-  letter-spacing: 0.12%;
+  letter-spacing: 0.0012rem;
   background: #fff;
   color: #48556a;
 }
@@ -52,6 +52,161 @@ button {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 1.5rem;
+  background-color: #ecf2f8;
+  min-height: 100vh;
+}
+
+/*----------------- Card -----------------*/
+.card {
+  background-color: #fff;
+  border-radius: 0.625rem;
+  overflow: hidden;
+  box-shadow: 0 40px 40px -10px rgba(201, 213, 225, 0.5);
+}
+.card__image {
+  width: 100%;
+  height: 12.5rem;
+  overflow: hidden;
+}
+.card__image img {
+  width: 100%;
+  object-position: 0 -1rem;
+  object-fit: cover;
+}
+.card__content {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+.card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.card__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.0156rem;
+}
+.card__description {
+  color: #6e8098;
+}
+.card__interaction {
+  position: relative;
+  margin-top: 4.5rem;
+}
+
+/*-------------- Author Component --------------*/
+.interaction--default {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.profile .avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.profile .avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.profile .author {
+  display: flex;
+  flex-direction: column;
+}
+.profile .author__name {
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.0012rem;
+}
+.profile .author__date {
+  color: #9daec2;
+}
+
+.interaction--share {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #48556a;
+  padding: 1.5rem 2rem;
+  position: absolute;
+  left: 0;
+  bottom: -6.5rem;
+  width: 100%;
+  opacity: 0;
+  transition: all 0.2s ease;
+}
+.interaction--share .share {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 5vw, 1.5rem);
+}
+.interaction--share .share__text {
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.25rem;
+  text-transform: uppercase;
+  color: #9daec2;
+}
+.interaction--share .share__social {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.interaction--tooltip {
+  display: none;
+}
+
+.show--share {
+  bottom: 0;
+  opacity: 1;
+}
+
+/*----------------- Share Button -----------------*/
+.share__button {
+  width: 2rem;
+  height: 2rem;
+  background-color: #ecf2f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.share__button img {
+  filter: invert(50%) saturate(0%) brightness(90%) contrast(90%);
+  object-position: 0 -0.0625rem;
+  transition: filter 0.2s ease;
+}
+.share__button:hover, .share__button--active {
+  background-color: #6e8098;
+}
+.share__button:hover img, .share__button--active img {
+  filter: invert(100%) saturate(0%) brightness(1000%) contrast(1000%);
 }
 
 /*# sourceMappingURL=styles.css.map */
