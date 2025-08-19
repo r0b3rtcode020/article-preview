@@ -1,12 +1,12 @@
-// 📌 DOM Elements
+// DOM Elements
 const $interactionShare = document.querySelector(".interaction--share");
 const $tooltip = document.querySelector(".interaction--tooltip");
 
-// 📱 Media Queries
+// Media Queries
 const mediaMobile = window.matchMedia("(max-width: 767px)");
 const mediaDesktop = window.matchMedia("(min-width: 768px)");
 
-// 🎯 Click Handler Factory
+// Click Handler Factory
 const createClickHandler = target => event => {
   const isShareButton = event.target.closest(".share__button");
   const isInsideTarget = target.contains(event.target);
@@ -22,11 +22,11 @@ const createClickHandler = target => event => {
   }
 };
 
-// 🖱️ Specific Handlers
+// Specific Handlers
 const mobileHandler = createClickHandler($interactionShare);
 const desktopHandler = createClickHandler($tooltip);
 
-// 🔄 Toggle Event Listeners
+// Toggle Event Listeners
 const updateClickHandler = (mediaQuery, handler) => {
   if (mediaQuery.matches) {
     document.addEventListener("click", handler);
@@ -35,12 +35,12 @@ const updateClickHandler = (mediaQuery, handler) => {
   }
 };
 
-// 🧹 Reset UI State
+// Reset UI State
 const clearShareState = () => {
   [$interactionShare, $tooltip].forEach(el => el.classList.remove("show--share"));
 };
 
-// 🚀 Initialization
+// Initialization
 const initShareComponent = () => {
   updateClickHandler(mediaMobile, mobileHandler);
   updateClickHandler(mediaDesktop, desktopHandler);
