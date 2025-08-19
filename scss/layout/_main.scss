@@ -1,4 +1,5 @@
 @use "../base/variables" as *;
+@use "../base/mixins" as *;
 
 .container {
   display: flex;
@@ -7,4 +8,10 @@
   padding: $spacing-64 $spacing-24;
   background-color: $color-grey-200;
   min-height: 100vh;
+  @include breakpoint("tablet") {
+    padding: 14.1875rem $spacing-80;
+  }
+  @include breakpoint("desktop") {
+    padding: 16.25rem $spacing-80;
+  }
 }

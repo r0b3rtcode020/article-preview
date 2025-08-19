@@ -62,28 +62,82 @@ button {
   background-color: #ecf2f8;
   min-height: 100vh;
 }
+@media (min-width: 48rem) {
+  .container {
+    padding: 14.1875rem 5rem;
+  }
+}
+@media (min-width: 90rem) {
+  .container {
+    padding: 16.25rem 5rem;
+  }
+}
 
 /*----------------- Card -----------------*/
 .card {
   background-color: #fff;
   border-radius: 0.625rem;
-  overflow: hidden;
   box-shadow: 0 40px 40px -10px rgba(201, 213, 225, 0.5);
+  max-width: 22.75rem;
+  display: grid;
+  grid-template-areas: "image" "content" "interaction";
+}
+@media (min-width: 48rem) {
+  .card {
+    max-width: 45.625rem;
+    grid-template-areas: "image content" "image interaction";
+  }
 }
 .card__image {
+  grid-area: image;
   width: 100%;
   height: 12.5rem;
   overflow: hidden;
+  border-radius: 0.625rem 0.625rem 0 0;
+}
+@media (min-width: 48rem) {
+  .card__image {
+    width: 14.3125rem;
+    height: 100%;
+    border-radius: 0.625rem 0 0 0.625rem;
+  }
+}
+@media (min-width: 90rem) {
+  .card__image {
+    width: 17.8125rem;
+  }
 }
 .card__image img {
   width: 100%;
+  height: 100%;
   object-position: 0 -1rem;
   object-fit: cover;
 }
+@media (min-width: 48rem) {
+  .card__image img {
+    object-position: -2rem 0;
+  }
+}
+@media (min-width: 90rem) {
+  .card__image img {
+    object-position: 0;
+  }
+}
 .card__content {
+  grid-area: content;
   display: flex;
   flex-direction: column;
   padding: 2rem;
+}
+@media (min-width: 48rem) {
+  .card__content {
+    padding: 2.5rem 2.5rem 1rem 2.5rem;
+  }
+}
+@media (min-width: 90rem) {
+  .card__content {
+    padding: 2rem 2.5rem 1rem 2.5rem;
+  }
 }
 .card__info {
   display: flex;
@@ -100,8 +154,14 @@ button {
   color: #6e8098;
 }
 .card__interaction {
+  grid-area: interaction;
   position: relative;
   margin-top: 4.5rem;
+}
+@media (min-width: 48rem) {
+  .card__interaction {
+    margin-top: 6rem;
+  }
 }
 
 /*-------------- Author Component --------------*/
@@ -114,6 +174,16 @@ button {
   left: 0;
   bottom: 0;
   width: 100%;
+}
+@media (min-width: 48rem) {
+  .interaction--default {
+    padding: 0 2.25rem 2.5rem 2.25rem;
+  }
+}
+@media (min-width: 90rem) {
+  .interaction--default {
+    padding: 0 2.5rem 2rem 2.5rem;
+  }
 }
 
 .profile {
@@ -146,14 +216,15 @@ button {
 }
 
 .interaction--share {
-  display: flex;
+  display: none;
   justify-content: space-between;
   align-items: center;
   background-color: #48556a;
   padding: 1.5rem 2rem;
+  border-radius: 0 0 0.625rem 0.625rem;
   position: absolute;
   left: 0;
-  bottom: -6.5rem;
+  bottom: 0;
   width: 100%;
   opacity: 0;
   transition: all 0.2s ease;
@@ -178,10 +249,55 @@ button {
 
 .interaction--tooltip {
   display: none;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #48556a;
+  filter: drop-shadow(0 10px 10px rgba(201, 213, 225, 0.5));
+  padding: 1rem 2.25rem;
+  border-radius: 0.625rem;
+  opacity: 0;
+  transition: all 0.2s ease;
+  position: absolute;
+  right: -72px;
+  bottom: 104px;
+  width: 15.5rem;
+}
+@media (min-width: 90rem) {
+  .interaction--tooltip {
+    right: -68px;
+  }
+}
+
+.tooltip__text {
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.25rem;
+  text-transform: uppercase;
+  color: #9daec2;
+}
+
+.tooltip__social {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.tooltip__arrow::before {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 12px solid #48556a;
+  filter: drop-shadow(0 10px 10px rgba(201, 213, 225, 0.5));
 }
 
 .show--share {
-  bottom: 0;
+  display: flex;
   opacity: 1;
 }
 

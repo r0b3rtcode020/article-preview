@@ -6,25 +6,60 @@
 .card {
   background-color: $color-white;
   border-radius: $spacing-10;
-  overflow: hidden;
-  box-shadow: $shadow;
+  box-shadow: $shadow-card;
+  max-width: 22.75rem;
+  display: grid;
+  grid-template-areas:
+    "image"
+    "content"
+    "interaction";
+  @include breakpoint("tablet") {
+    max-width: 45.625rem;
+    grid-template-areas:
+      "image content"
+      "image interaction";
+  }
 
   &__image {
+    grid-area: image;
     width: 100%;
     height: 12.5rem;
     overflow: hidden;
+    border-radius: $spacing-10 $spacing-10 $spacing-0 $spacing-0;
+    @include breakpoint("tablet") {
+      width: 14.3125rem;
+      height: 100%;
+      border-radius: $spacing-10 $spacing-0 $spacing-0 $spacing-10;
+    }
+    @include breakpoint("desktop") {
+      width: 17.8125rem;
+    }
 
     img {
       width: 100%;
+      height: 100%;
       object-position: 0 -1rem;
       object-fit: cover;
+      @include breakpoint("tablet") {
+        object-position: -2rem 0;
+      }
+      @include breakpoint("desktop") {
+        object-position: 0;
+      }
     }
   }
 
   &__content {
+    grid-area: content;
     display: flex;
     flex-direction: column;
     padding: $spacing-32;
+    @include breakpoint("tablet") {
+      padding: $spacing-40 $spacing-40 $spacing-16 $spacing-40;
+    }
+    @include breakpoint("desktop") {
+      padding: $spacing-32 $spacing-40 $spacing-16 $spacing-40;
+    }
   }
 
   &__info {
@@ -43,7 +78,11 @@
   }
 
   &__interaction {
+    grid-area: interaction;
     position: relative;
     margin-top: $spacing-72;
+    @include breakpoint("tablet") {
+      margin-top: calc($spacing-72 + $spacing-24);
+    }
   }
 }
