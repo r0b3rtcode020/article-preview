@@ -15,6 +15,8 @@ This is a solution to the [Article preview component challenge on Frontend Mento
 - Mobile-first workflow
 - Responsive design
 - JavaScript
+  - DOM manipulation
+  - Event listeners
 
 ## Live site
 
