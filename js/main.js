@@ -1,22 +1,25 @@
 const $interactionShare = document.querySelector(".interaction--share");
 const $shareButton = document.querySelector(".share__button");
 
-const createClickHandler = e => {
-  const isShareButton = e.target.closest(".share__button");
-  const isInsideTarget = $interactionShare.contains(e.target);
+// Handler specifically for the share button click
+const onShareButtonClick = e => {
+  e.stopPropagation(); // Prevent event bubbling to document
+  $shareButton.classList.toggle("share__button--active");
+  $interactionShare.classList.toggle("show--share");
+};
 
-  if (isShareButton) {
-    e.stopPropagation();
-    $shareButton.classList.toggle("share__button--active");
-    $interactionShare.classList.toggle("show--share");
-    return;
-  }
-
-  if (!isInsideTarget && $interactionShare.classList.contains("show--share")) {
+// Handler for clicks anywhere else on the document
+const onDocumentClick = e => {
+  // Close share UI only if click is outside the share container
+  if (
+    !$interactionShare.contains(e.target) &&
+    $interactionShare.classList.contains("show--share")
+  ) {
     $shareButton.classList.remove("share__button--active");
     $interactionShare.classList.remove("show--share");
   }
 };
 
-$shareButton.addEventListener("click", createClickHandler);
-document.addEventListener("click", createClickHandler);
+// Attach handlers separately
+$shareButton.addEventListener("click", onShareButtonClick);
+document.addEventListener("click", onDocumentClick);
