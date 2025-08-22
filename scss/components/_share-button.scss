@@ -11,20 +11,29 @@
   align-items: center;
   border-radius: 50%;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  position: relative;
+  z-index: 1;
 
   img {
     filter: invert(50%) saturate(0%) brightness(90%) contrast(90%);
     object-position: 0 -0.0625rem;
-    transition: filter 0.2s ease;
   }
 
-  &:hover,
   &--active {
     background-color: $color-grey-500;
 
     img {
       filter: invert(100%) saturate(0%) brightness(1000%) contrast(1000%);
+    }
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: $color-grey-500;
+
+      img {
+        filter: invert(100%) saturate(0%) brightness(1000%) contrast(1000%);
+      }
     }
   }
 }

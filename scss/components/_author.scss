@@ -54,17 +54,26 @@
 
 .interaction--share {
   display: none;
-  justify-content: space-between;
   align-items: center;
   background-color: $color-grey-900;
   padding: $spacing-24 $spacing-32;
   border-radius: $spacing-0 $spacing-0 $spacing-10 $spacing-10;
   position: absolute;
-  left: 0;
+  right: 0;
   bottom: 0;
   width: 100%;
   opacity: 0;
-  transition: all 0.2s ease;
+  @include breakpoint("tablet") {
+    right: -4.5rem;
+    bottom: 6.5rem;
+    border-radius: $spacing-10;
+    padding: $spacing-16 $spacing-36;
+    width: max-content;
+    filter: drop-shadow(0 10px 10px rgba(201, 213, 225, 0.5));
+  }
+  @include breakpoint("desktop") {
+    right: -4.25rem;
+  }
 
   .share {
     display: flex;
@@ -82,50 +91,22 @@
       gap: $spacing-16;
     }
   }
-}
 
-.interaction--tooltip {
-  display: none;
-  justify-content: space-between;
-  align-items: center;
-  background-color: $color-grey-900;
-  filter: drop-shadow(0 10px 10px rgba(201, 213, 225, 0.5));
-  padding: $spacing-16 $spacing-36;
-  border-radius: $spacing-10;
-  opacity: 0;
-  transition: all 0.2s ease;
-  position: absolute;
-  right: -72px;
-  bottom: 104px;
-  width: 15.5rem;
-  @include breakpoint("desktop") {
-    right: -68px;
+  .tooltip__arrow {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-top: 12px solid $color-grey-900;
+    display: none;
+    @include breakpoint("tablet") {
+      display: block;
+    }
   }
-}
-
-.tooltip__text {
-  @include text-preset3;
-  color: $color-grey-400;
-}
-
-.tooltip__social {
-  display: flex;
-  align-items: center;
-  gap: $spacing-16;
-}
-
-.tooltip__arrow::before {
-  content: "";
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-left: 12px solid transparent;
-  border-right: 12px solid transparent;
-  border-top: 12px solid $color-grey-900;
-  filter: drop-shadow(0 10px 10px rgba(201, 213, 225, 0.5));
 }
 
 .show--share {

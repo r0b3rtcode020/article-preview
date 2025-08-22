@@ -217,17 +217,30 @@ button {
 
 .interaction--share {
   display: none;
-  justify-content: space-between;
   align-items: center;
   background-color: #48556a;
   padding: 1.5rem 2rem;
   border-radius: 0 0 0.625rem 0.625rem;
   position: absolute;
-  left: 0;
+  right: 0;
   bottom: 0;
   width: 100%;
   opacity: 0;
-  transition: all 0.2s ease;
+}
+@media (min-width: 48rem) {
+  .interaction--share {
+    right: -4.5rem;
+    bottom: 6.5rem;
+    border-radius: 0.625rem;
+    padding: 1rem 2.25rem;
+    width: max-content;
+    filter: drop-shadow(0 10px 10px rgba(201, 213, 225, 0.5));
+  }
+}
+@media (min-width: 90rem) {
+  .interaction--share {
+    right: -4.25rem;
+  }
 }
 .interaction--share .share {
   display: flex;
@@ -246,44 +259,7 @@ button {
   align-items: center;
   gap: 1rem;
 }
-
-.interaction--tooltip {
-  display: none;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #48556a;
-  filter: drop-shadow(0 10px 10px rgba(201, 213, 225, 0.5));
-  padding: 1rem 2.25rem;
-  border-radius: 0.625rem;
-  opacity: 0;
-  transition: all 0.2s ease;
-  position: absolute;
-  right: -72px;
-  bottom: 104px;
-  width: 15.5rem;
-}
-@media (min-width: 90rem) {
-  .interaction--tooltip {
-    right: -68px;
-  }
-}
-
-.tooltip__text {
-  font-weight: 500;
-  line-height: 1.4;
-  letter-spacing: 0.25rem;
-  text-transform: uppercase;
-  color: #9daec2;
-}
-
-.tooltip__social {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.tooltip__arrow::before {
-  content: "";
+.interaction--share .tooltip__arrow {
   position: absolute;
   bottom: -10px;
   left: 50%;
@@ -293,7 +269,12 @@ button {
   border-left: 12px solid transparent;
   border-right: 12px solid transparent;
   border-top: 12px solid #48556a;
-  filter: drop-shadow(0 10px 10px rgba(201, 213, 225, 0.5));
+  display: none;
+}
+@media (min-width: 48rem) {
+  .interaction--share .tooltip__arrow {
+    display: block;
+  }
 }
 
 .show--share {
@@ -311,18 +292,26 @@ button {
   align-items: center;
   border-radius: 50%;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  position: relative;
+  z-index: 1;
 }
 .share__button img {
   filter: invert(50%) saturate(0%) brightness(90%) contrast(90%);
   object-position: 0 -0.0625rem;
-  transition: filter 0.2s ease;
 }
-.share__button:hover, .share__button--active {
+.share__button--active {
   background-color: #6e8098;
 }
-.share__button:hover img, .share__button--active img {
+.share__button--active img {
   filter: invert(100%) saturate(0%) brightness(1000%) contrast(1000%);
+}
+@media (hover: hover) and (pointer: fine) {
+  .share__button:hover {
+    background-color: #6e8098;
+  }
+  .share__button:hover img {
+    filter: invert(100%) saturate(0%) brightness(1000%) contrast(1000%);
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
